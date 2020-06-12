@@ -8,7 +8,10 @@ phases:
       - pip install --upgrade pip
       - pip install pipenv --user
       - pipenv lock
-      - pipenv install awscli aws-sam-cli
+      - pipenv install awscli
+      - pipenv lock
+      - pipenv install aws-sam-cli
+      - pipenv lock
       - pipenv run sam package --template-file template.yml --s3-bucket serverless-reminder-app-bucket --output-template-file packaged-template.yml
 artifacts:
   files:
