@@ -10,7 +10,7 @@ phases:
       - pip install awscli
       - pip install aws-sam-cli
       - sam package --template-file template.yml --s3-bucket serverless-reminder-app-bucket --output-template-file packaged-template.yml
-      - sam deploy --template-file packaged-template.yml --stack-name serverless-reminder-app-bucket --capabilities CAPABILITY_IAM
+      - sam deploy --template-file packaged-template.yml --stack-name serverless-reminder-backend --capabilities CAPABILITY_IAM
 artifacts:
   files:
     - packaged-template.yml
