@@ -9,7 +9,7 @@ phases:
       - pip install pipenv --user
       - pip install awscli
       - pip install aws-sam-cli
-      - pip run sam package --template-file template.yml --s3-bucket serverless-reminder-app-bucket --output-template-file packaged-template.yml
+      - sam package --template-file template.yml --s3-bucket serverless-reminder-app-bucket --output-template-file packaged-template.yml
 artifacts:
   files:
     - packaged-template.yml
