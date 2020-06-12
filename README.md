@@ -28,6 +28,4 @@ aws cloudformation describe-stacks --stack-name $stack_name_backend
 aws cloudformation describe-stacks --stack-name $stack_name_backend --query "Stacks[0].Outputs[?OutputKey=='HelloWorldApi'].OutputValue" --output text
 
  
-
-
 AWS_REGION=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's/\(.*\)[a-z]/\1/')
