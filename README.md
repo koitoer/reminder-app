@@ -20,12 +20,12 @@ s3_deploy_bucket="serverless-reminder-app-bucket"
 stack_name_backend="serverless-reminder-backend"
 
 aws s3 mb s3://$s3_deploy_bucket
-sam package --output-template-file packaged.yaml --s3-bucket $s3_deploy_bucket
-sam deploy --template-file packaged.yaml --stack-name $stack_name_backend --capabilities CAPABILITY_IAM
+sam package --output-template-file packaged.yml --s3-bucket $s3_deploy_bucket
+sam deploy --template-file packaged.yml --stack-name $stack_name_backend --capabilities CAPABILITY_IAM
 aws cloudformation delete-stack --stack-name $stack_name_backend
 
 aws cloudformation describe-stacks --stack-name $stack_name_backend
 aws cloudformation describe-stacks --stack-name $stack_name_backend --query "Stacks[0].Outputs[?OutputKey=='HelloWorldApi'].OutputValue" --output text
 
- 
+
 AWS_REGION=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's/\(.*\)[a-z]/\1/')
